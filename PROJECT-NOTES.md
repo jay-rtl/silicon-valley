@@ -37,7 +37,7 @@ All images are stored locally. No hotlinking is required at runtime.
 | `public/assets/images/bathroom.jpg` | https://siliconvalleygbc.com/wp-content/uploads/2025/02/bathroom-remodeling-by-general-contractor-in-san-jose.jpg | Source-site image; project provenance unverified |
 | `public/assets/images/home.webp` | https://siliconvalleygbc.com/wp-content/uploads/2025/02/silicon-valley-general-biulder-constraction.webp | Source-site service reference; project provenance unverified |
 
-Unsplash reference license: https://unsplash.com/license . Company-source photography copyright remains with its respective rights holders. Public accessibility does not establish a commercial reuse license; confirm permissions before publication. The site remains local.
+Unsplash reference license: https://unsplash.com/license . Company-source photography copyright remains with its respective rights holders. Public accessibility does not establish a commercial reuse license. The user authorized publication of this independent concept to the jay-rtl/silicon-valley GitHub repository and GitHub Pages.
 
 ## Conceptual material
 

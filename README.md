@@ -1,6 +1,6 @@
 # Silicon Valley GBC — independent redesign concept
 
-A new, local, static Astro/TypeScript website. No connection to WordPress and no deployment performed. The official business identity is preserved; the footer clearly identifies the independent concept.
+A static Astro/TypeScript website with GitHub Pages deployment configured at https://jay-rtl.github.io/silicon-valley/ . No connection to WordPress. The official business identity is preserved; the footer clearly identifies the independent concept.
 
 ## Run locally
 
