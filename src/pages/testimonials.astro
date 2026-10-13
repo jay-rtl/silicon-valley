@@ -1,0 +1,6 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Reviews from '../components/Reviews.astro';
+import {reviews} from '../data';
+---
+<Layout title="Client Perspectives" description="Attributed excerpts of customer testimonials published on the company website."><section class="page-heading section"><p class="eyebrow">CLIENT PERSPECTIVES</p><h1>In their<br/><em>own words.</em></h1><p class="page-lead">Short, attributed excerpts from testimonials published on the company’s homepage. These reviews have not been independently authenticated.</p></section><Reviews/><section class="section review-list">{reviews.map(r=><article><p class="eyebrow">{r.type}</p><blockquote>“{r.quote}”</blockquote><p>{r.name}</p></article>)}<p class="caption">Source: Silicon Valley General Builder Contractor homepage, reviewed October 13, 2026. Quotes are excerpts.</p></section></Layout>

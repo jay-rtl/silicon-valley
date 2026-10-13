@@ -1,0 +1,8 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import {services,url,img} from '../../data';
+export function getStaticPaths(){return services.map(service=>({params:{slug:service.slug},props:{service}}));}
+const {service:s}=Astro.props;
+const related=services.filter(x=>x.slug!==s.slug).slice(0,3);
+---
+<Layout title={s.title} description={`${s.title} in Silicon Valley. ${s.text}`}><section class="service-detail-hero"><div class="section"><a class="eyebrow breadcrumb" href={url('services/')}>SERVICES / {s.title.toUpperCase()}</a><h1>{s.title}</h1><p>{s.lead}</p><a class="button light" href={url(`contact/?service=${s.slug}`)}>Discuss your project ↗</a></div><img src={img(s.image)} alt={s.title+' — visual reference, project ownership unverified'} width="1600" height="1200"/><span class="image-note">Visual reference · See project notes for provenance</span></section><section class="section service-body"><div><p class="eyebrow">THE POSSIBILITIES</p><h2>A considered<br/><em>approach.</em></h2><p class="body-copy">{s.text}</p><p class="muted">Every property and project is different. Confirm the scope, site requirements, availability, and estimate directly with the company before proceeding.</p></div><div class="scope"><p class="eyebrow">WHAT TO DISCUSS</p>{s.scope.map((item,i)=><div><span>0{i+1}</span><h3>{item}</h3></div>)}<a class="text-link" href={url('our-process/')}>How a project takes shape ↗</a></div></section><section class="section related"><p class="eyebrow">EXPLORE FURTHER</p>{related.map(r=><a href={url(`services/${r.slug}/`)}>{r.title}<span>↗</span></a>)}</section></Layout>

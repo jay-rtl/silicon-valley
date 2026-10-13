@@ -1,0 +1,4 @@
+---
+import {projects,img,url} from '../data';
+---
+<div class="project-grid">{projects.map((p,i)=><a class:list={['project',{'project-large':i===0}]} href={url(`projects/${p.slug}/`)}><div class="image-frame"><img src={img(p.image)} alt={p.title+' — visual reference'} loading="lazy" width="1200" height="800"/><span class="project-arrow">↗</span></div><div class="project-caption"><div><h3>{p.title}</h3><p>{p.category}</p></div><span>0{i+1}</span></div></a>)}</div>

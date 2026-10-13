@@ -1,0 +1,5 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import {services,url,img} from '../../data';
+---
+<Layout title="Construction & Remodeling Services" description="Explore verified construction, remodeling, roofing, additions, and ADU services across Silicon Valley."><section class="page-heading section"><p class="eyebrow">OUR EXPERTISE</p><h1>Built around<br/><em>your vision.</em></h1><p class="page-lead">From the first structural decision to the final finish. Explore construction and remodeling services for homes and businesses across Silicon Valley.</p></section><section class="service-catalog section">{services.map((s,i)=><a class="catalog-item" href={url(`services/${s.slug}/`)}><img src={img(s.image)} alt={s.title+' visual reference'} loading="lazy" width="800" height="600"/><div><small>/{String(i+1).padStart(2,'0')}</small><h2>{s.title}</h2><p>{s.lead}</p><span class="text-link">Explore service ↗</span></div></a>)}</section></Layout>

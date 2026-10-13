@@ -1,0 +1,18 @@
+---
+import '../styles/global.css';
+import {url} from '../data';
+import {ClientRouter} from 'astro:transitions';
+const {title='Where Vision Becomes Structure',description='Explore a new architectural perspective on construction and remodeling across Silicon Valley. Independent redesign concept.'} = Astro.props;
+const nav = [['About','about/'],['Services','services/'],['Projects','projects/'],['Our Process','our-process/']];
+const schema={'@context':'https://schema.org','@type':'WebPage',name:`${title} — Independent redesign concept`,description,about:{'@type':'Organization',name:'Silicon Valley General Builder Contractor',telephone:'+1-669-222-9922',email:'info@siliconvalleygbc.com',address:{'@type':'PostalAddress',streetAddress:'2100 Geng Rd, STE 210',addressLocality:'Palo Alto',addressRegion:'CA',postalCode:'94303',addressCountry:'US'},areaServed:['San Jose','Santa Clara','Sunnyvale','Mountain View','Palo Alto']}};
+---
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="description" content={description}/><meta name="theme-color" content="#181b1b"/><meta name="robots" content="noindex, nofollow"/><title>{title} | Silicon Valley GBC · Concept</title><script type="application/ld+json" set:html={JSON.stringify(schema)}/><ClientRouter/><link rel="icon" href={url('assets/branding/original-logo.png')}/></head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="header"><a class="brand" href={url()} aria-label="Silicon Valley General Builder Contractor home"><img src={url('assets/branding/original-logo.png')} width="250" height="73" alt="Silicon Valley General Builder Contractor"/></a><nav class="desktop-nav" aria-label="Main navigation">{nav.map(([label,path])=><a class:list={{active:Astro.url.pathname.includes(path)}} href={url(path)}>{label}</a>)}</nav><a class="header-cta" href={url('contact/')}>Let’s build together <span>↗</span></a><button class="menu-button" aria-expanded="false" aria-controls="mobile-nav">Menu <span>☰</span></button></header>
+<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden><img src={url('assets/branding/original-logo.png')} width="250" height="73" alt="Silicon Valley General Builder Contractor"/>{[...nav,['Contact','contact/'],['Service Areas','service-areas/']].map(([label,path],i)=><a href={url(path)}><small>0{i+1}</small>{label}<span>↗</span></a>)}</nav>
+<main id="main"><slot/></main>
+<section class="closing"><div class="closing-shade"></div><div class="closing-content"><p class="eyebrow">A CONVERSATION IS THE FIRST FOUNDATION</p><h2>Let’s build<br/>what comes <em>next.</em></h2><div class="button-row"><a class="button light" href={url('contact/')}>Start your project <span>↗</span></a><a class="text-link white" href="tel:+16692229922">Call our team ↗</a></div></div><span class="image-note">Architectural reference · Unsplash</span></section>
+<footer><div class="footer-top"><a class="footer-logo" href={url()}><img src={url('assets/branding/original-logo.png')} width="250" height="73" alt="Silicon Valley General Builder Contractor"/></a><p>Built with precision.<br/>Designed for living.</p><div><a href="tel:+16692229922">(669) 222-9922 ↗</a><a href="mailto:info@siliconvalleygbc.com">info@siliconvalleygbc.com ↗</a></div></div><div class="footer-bottom"><span>Independent redesign concept. Not the official company website.</span><div><a href={url('service-areas/')}>Service areas</a><a href={url('testimonials/')}>Testimonials</a><a href={url('privacy/')}>Privacy</a></div><span>© {new Date().getFullYear()} · Concept studio</span></div></footer>
+<script>import '../scripts/main';</script>
+</body></html>

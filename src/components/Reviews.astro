@@ -1,0 +1,4 @@
+---
+import {reviews,url} from '../data';
+---
+<section class="reviews section"><div class="section-top"><p class="eyebrow">IN THEIR OWN WORDS</p><p class="section-index">06 / CLIENT PERSPECTIVES</p></div><div class="review-slides" aria-live="polite">{reviews.map((r,i)=><figure class="review-slide" hidden={i!==0}><span class="quote-mark">“</span><blockquote>{r.quote}</blockquote><figcaption><strong>{r.name}</strong><span>{r.type} · Excerpt published on the company website</span></figcaption></figure>)}</div><div class="review-controls"><button data-review="-1" aria-label="Previous testimonial">←</button><span class="review-count">01 / 03</span><button data-review="1" aria-label="Next testimonial">→</button><a class="text-link" href={url('testimonials/')}>Read client perspectives ↗</a></div></section>

@@ -1,0 +1,5 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {steps,img,url} from '../data';
+---
+<Layout title="Our Process" description="A proposed five-stage journey from consultation through final walkthrough for your Silicon Valley construction project."><section class="page-heading section"><p class="eyebrow">FROM A FIRST IDEA TO A FINAL DETAIL</p><h1>Clarity at<br/><em>every stage.</em></h1><p class="page-lead">A thoughtful framework for discussing your project. The exact sequence, responsibilities, and deliverables will be agreed with the company for your scope.</p></section><section class="process-detail section">{steps.map(([title,lead,text],i)=><article id={`step-${i+1}`}><span class="giant-number">0{i+1}</span><div><p class="eyebrow">{title.toUpperCase()}</p><h2>{lead}</h2><p>{text}</p>{i===0&&<a class="text-link" href={url('contact/')}>Begin a conversation ↗</a>}</div></article>)}</section><figure class="wide-image"><img src={img('hero.jpg')} alt="Finished interior — architectural reference" width="2000" height="1000" loading="lazy"/><figcaption>Architectural reference · Unsplash</figcaption></figure></Layout>
